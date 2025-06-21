@@ -6,22 +6,19 @@ ENV/
 __pycache__/
 
 # Jupyter and IPython notebooks
+# Keep notebooks in Git, but ignore the checkpoints
 .ipynb_checkpoints/
-*.ipynb
 
 # Log files
 *.log
 logs/
 
-# Data files - Keep the small labeled file, but ignore large raw/processed data
-# If your CSV files are large (>25MB), uncomment the lines below
-# and use a tool like Git LFS or DVC to track them.
-# data/scraped_data.csv
-# data/preprocessed_data.csv
+data/scraped_data.csv
+data/preprocessed_data.csv
+*.arrow
 
 # Reports and large outputs
-reports/*.pdf
-reports/*.csv
+reports/
 
 # Operating System files
 .DS_Store
@@ -40,10 +37,8 @@ api_keys.py
 *.swp
 *.swo
 
-# TensorFlow/PyTorch model files (if very large)
-# models/
+# Saved models (can be very large)
 saved_models/
 
 # Datasets cache
 .hf_dataset/
-*.arrow
