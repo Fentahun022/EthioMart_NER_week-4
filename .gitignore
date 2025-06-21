@@ -5,9 +5,7 @@ env/
 ENV/
 __pycache__/
 
-# Jupyter and IPython notebooks
-.ipynb_checkpoints/
-*.ipynb
+
 
 # Log files
 *.log
