@@ -1,0 +1,11 @@
+pandas
+telethon
+aiofiles
+torch
+transformers
+datasets
+seqeval
+accelerate
+shap
+tqdm
+nest_asyncio
