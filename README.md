@@ -1,4 +1,27 @@
-# EthioMart: Amharic NER for E-Commerce Consolidation
+ # EthioMart: Amharic NER and Vendor Analytics Project
+
+## Project Overview
+
+The core business problem is the fragmented nature of Telegram e-commerce in Ethiopia. This project solves this by creating a repeatable workflow to:
+1.  **Ingest** data from multiple channels in real-time.
+2.  **Structure** the data by extracting key entities (Products, Prices, Locations, etc.).
+3.  **Analyze** the structured data to generate actionable business intelligence.
+
+## Key Achievements & Results
+
+*   **High-Performance NER Model:** Successfully fine-tuned a `Davlan/afro-xlmr-base` model, achieving an **F1-score of 0.96** on a custom Amharic e-commerce dataset.
+*   **End-to-End Repeatable Workflow:** Established a complete pipeline from raw data scraping (897 messages collected) to a final, structured business analysis.
+*   **Vendor Analytics Engine:** Developed a "Lending Score" that combines NER-extracted data with Telegram metadata (views, post frequency) to create a powerful vendor assessment tool.
+
+## Tech Stack
+
+*   **Programming Language:** Python 3.10
+*   **Data Ingestion:** Telethon
+*   **ML/NLP Frameworks:** PyTorch, Hugging Face (Transformers, Datasets, Tokenizers)
+*   **Data Manipulation:** Pandas, NumPy
+*   **Model Interpretability:** SHAP
+*   **Core Libraries:** seqeval, tqdm, ipywidgets
+
 
 # Environment Setup
 To set up the development environment for this project, follow these steps:
@@ -18,16 +41,24 @@ python3 -m venv venv source venv/bin/activate
 
 pip install -r requirements.txt
 
-# This project develops a complete workflow for building an Amharic Named Entity Recognition (NER) system. The system is designed for EthioMart, a platform aiming to centralize Ethiopia's Telegram-based e-commerce activities by extracting key business entities (Products, Prices, Locations) from vendor posts.
+## Project Structure
 
-The project also includes a Vendor Analytics Engine that uses the extracted data and post metadata to create a "Lending Score," helping EthioMart identify promising vendors for micro-lending opportunities.
-## Project Overview
-
-The primary goal is to create a repeatable pipeline that:
-1.  Ingests real-time data from multiple Amharic e-commerce Telegram channels.
-2.  Preprocesses and labels the unstructured text data.
-
-## Key Features
-
-- **Data Ingestion:** A robust Python scraper using `Telethon` to fetch data from public Telegram channels.
-- **Data Labeling:** A manually labeled, high-quality dataset in CoNLL format, tailored for e-commerce entities.
+The repository is organized into modular components for clarity and scalability.
+EthioMart_NER_Project/
+├── .gitignore
+├── data/
+│ ├── scraped_data.csv # Raw data collected from Telegram
+│ └── preprocessed_data.csv # Cleaned data ready for analysis
+│ └── labeled_data.txt # Manually labeled data in CoNLL format
+├── notebooks/
+│ ├── 01_Data_Ingestion_and_Preprocessing.ipynb
+│ ├── 03_Model_Finetuning_and_Evaluation.ipynb
+│ ├── 04_Model_Comparison_and_Interpretability.ipynb
+│ └── 05_Vendor_Scorecard_Engine.ipynb
+├── reports/
+│ └── vendor_scorecard.csv # Final output of the project
+├── saved_models/
+│ └── amharic-ner-afro-xlmr/ # The fine-tuned model artifact
+├── venv/ # Python virtual environment (ignored by git)
+├── README.md # This file
+└── requirements.txt # Project dependencies
